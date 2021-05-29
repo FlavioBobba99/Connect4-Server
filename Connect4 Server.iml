@@ -7,5 +7,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/externaLib/apache-log4j-2.14.1-bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/externaLib/apache-log4j-2.14.1-bin" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/externaLib/apache-log4j-2.14.1-bin" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/externaLib/apache-log4j-2.14.1-bin" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
