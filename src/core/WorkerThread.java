@@ -10,11 +10,14 @@ public class WorkerThread extends Thread{
     private Socket socket;
     private BufferedReader socketInput=null;
     private PrintWriter socketOutput=null;
+    private Player player = null;
+    private ServerMemory myMemory;
 
     public WorkerThread(Socket socket){
 
         this.socket = socket;
         setupReaders();
+        myMemory = ServerMemory.getServerMemory();
 
     }
 
@@ -30,6 +33,7 @@ public class WorkerThread extends Thread{
 
                 System.out.println("aa");
                 System.out.println(this.socketInput.readLine());
+                parseString(this.socketInput.readLine());
 
             }
 
@@ -49,5 +53,23 @@ public class WorkerThread extends Thread{
         }
     }
 
+    public void parseString(String message){
+        String[] parts = message.split(",");
+
+        switch (parts[0]){
+            case "newNick":
+                this.player = new Player(socket,parts[1]);
+                this.myMemory.addPlayer(player);
+                break;
+            /*
+            case "addToken":
+                if(gameStatus.lastcolor==parts[1])
+                    //aggiunta token in parts[2]
+                    break;
+            case "casualMatch":*/
+        }
+
+
+    }
 
 }
